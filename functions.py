@@ -1,6 +1,5 @@
 import requests
-from bs4 import BeautifulSoup as bs
-import html2text as h2t
+import re
 
 email1='emailexample1@inbox.lv'
 email2='emailexample2@inbox.lv'
@@ -27,8 +26,8 @@ def passwordReset(url, token_name, email):
 	return r.text
 
 def registrationCheck(html):
-	soap = bs(html, 'lxml')
-	if(soap.text.find('Check your email')!=-1): 
-		return True
-	else:
-		return False
+	messages=[r'check your email', r'(?:check|to) '+re.escape(email1)]
+	for message in messages:
+		if(re.search(message, html, flags = re.IGNORECASE)!=None):
+			return True
+	return False
