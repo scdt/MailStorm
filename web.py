@@ -1,6 +1,4 @@
 import requests
-import html2text as h2t
-import re
 
 email1='emailexample1@inbox.lv'
 email2='emailexample2@inbox.lv'
@@ -32,13 +30,3 @@ def registrationCheck(html):
 		if(re.search(message, html, flags = re.IGNORECASE)!=None):
 			return True
 	return False
-
-def htmlToText(html):
-	h = h2t.HTML2Text()
-	h.ignore_links = True
-	text = h.handle(html)
-	text = re.sub(r'\*\s+.*|#+\s*.*', '', text)
-	text = re.sub(r'!\S+', '', text)
-	text = re.sub(r'\n{2,}', '\n', text)
-	text = re.sub(r'\s{2,}', ' ', text)
-	return text
