@@ -4,9 +4,11 @@ import numpy as np
 import html2text as h2t
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
+from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import accuracy_score
+from sklearn.svm import LinearSVC
 
 
 def htmlToText(html):
@@ -67,7 +69,7 @@ def trainAndTest():
     vectorizer = TfidfVectorizer(max_features=200)
     train_set = vectorizer.fit_transform(train_texts)
     test_set = vectorizer.transform(test_texts)
-    clf = MultinomialNB()
+    clf = LinearSVC('l2', 'hinge', dual=True, fit_intercept=True)
     clf.fit(X=train_set, y=train_classes)
     predict_train = clf.predict(train_set)
     predict = clf.predict(test_set)
