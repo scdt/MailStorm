@@ -1,14 +1,15 @@
 import re
 import os
 import numpy as np
+import catboost
 import html2text as h2t
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.naive_bayes import MultinomialNB
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.metrics import accuracy_score
-from sklearn.svm import LinearSVC
+from catboost import CatBoostClassifier, Pool
+
+print(catboost.__file__)
 
 
 def htmlToText(html):
@@ -16,7 +17,7 @@ def htmlToText(html):
     h.ignore_links = True
     text = h.handle(html)
     # text = re.sub(r'\*\s+.*|#+\s*.*', '', text)
-    #text = re.sub(r'!\S+', '', text)
+    # text = re.sub(r'!\S+', '', text)
     text = re.sub(r'\S.jpeg|\S.jpg|\S.svg|\S.png', '', text)
     text = text.lower()
     text = text.replace("'", ' ')
@@ -66,10 +67,12 @@ def trainAndTest():
         train_texts.append(htmlToText(html))
     for html in test_htmls:
         test_texts.append(htmlToText(html))
-    vectorizer = TfidfVectorizer(max_features=200)
-    train_set = vectorizer.fit_transform(train_texts)
-    test_set = vectorizer.transform(test_texts)
-    clf = LinearSVC('l2', 'hinge', dual=True, fit_intercept=True)
+
+    vectorizer = CountVectorizer()
+    train_set = vectorizer.fit_transform(train_texts).toarray()
+    test_set = vectorizer.fit_transform(test_texts).toarray()
+    clf = CatBoostClassifier(iterations=1000, learning_rate=3, depth=7)
+
     clf.fit(X=train_set, y=train_classes)
     predict_train = clf.predict(train_set)
     predict = clf.predict(test_set)
