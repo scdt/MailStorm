@@ -3,6 +3,10 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from bs4 import BeautifulSoup
 from selenium.common.exceptions import ElementNotInteractableException
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
+from nltk.corpus import stopwords
 import html2text as h2t
 import re
 import time
@@ -15,16 +19,27 @@ urls = ['https://github.com/password_reset', 'https://trello.com/forgot', 'https
         'https://twitter.com/account/begin_password_reset', 'https://vimeo.com/forgot_password',
         'https://www.duolingo.com/forgot_password', 'https://nanowrimo.org/forgot-password']
 
+# urls = ['https://ltv.tapjoy.com/s/l#session/forgot', 'https://nanowrimo.org/forgot-password']
+
 
 def htmlToText(html):
     h = h2t.HTML2Text()
     h.ignore_links = True
     text = h.handle(html)
+    text = re.sub(r'\*\s+.*|#+\s*.*', '', text)
+    text = re.sub(r'!\S+', '', text)
     text = re.sub(r'\S.jpeg|\S.jpg|\S.svg|\S.png', '', text)
     text = text.lower()
     text = text.replace("'", ' ')
     text = re.sub(r'[^a-z\s]', '', text)
     text = re.sub(r'\n{2,}', '\n', text)
+    stop_words = set(stopwords.words('english'))
+    stop_words.difference_update({'should', 'no', 'not'})
+    stop_words.update({'one', 'distribution', 'ace', 'rewards', 'cookies', 'create', 'online', 'music', 'youtube', 'english',
+                       'video', 'privacy', 'terms', 'upload', 'new', 'love', 'espaol', 'portugus', 'streaming', 'log'})
+    for word in text.split():
+        if(word in stop_words):
+            text = re.sub(rf'\b{word}\b', '', text)
     text = re.sub(r'\s{2,}', ' ', text)
     return text
 
@@ -135,63 +150,78 @@ def find_button(driver):
     return None
 
 
+def reset_pas(driver, url, email):
+    count = 0
+    timeout = False
+    while(1):
+        try:
+            if not timeout:
+                driver.get(url)
+            # Найти все элементы с тэгом input
+            elements = driver.find_elements_by_tag_name("input")
+            # Найти среди них поле ввода email
+            element = find_email_input(elements)
+            if element is None:
+                print("Email input field not found")
+                return False
+            # Ввести в поле данные
+            element.send_keys(email)
+            time.sleep(1)
+            # Нажать Enter
+            element.send_keys(Keys.ENTER)
+            while(1):
+                page_state = driver.execute_script("return document.readyState;")
+                if page_state == "complete":
+                    break
+            time.sleep(1)
+            return driver.page_source
+        except ElementNotInteractableException:
+            if count > 2:
+                print("Element not interactable 3 times")
+                return False
+            count += 1
+        except TimeoutException:
+            timeout = True
+
+
 def main():
     options = webdriver.ChromeOptions()
     # Скрыть окно браузера или нет
     options.headless = False
     driver = webdriver.Chrome(executable_path='./chromedriver', options=options)
+    driver.set_page_load_timeout(10)
+    driver.get('https://www.google.com/')
     for url in urls:
         print('*' * 10, url, '*' * 10)
-        try:
-            while(1):
-                try:
-                    driver.get(url)
-                    # Найти все элементы с тэгом input
-                    elements = driver.find_elements_by_tag_name("input")
-                    # Найти среди них поле ввода email
-                    element = find_email_input(elements)
-                    if element is None:
-                        print("Email input field not found")
-                        raise NotImplementedError
-                    # Ввести в поле данные
-                    element.send_keys(email1)
-                    time.sleep(1)
-                    # Нажать Enter
-                    element.send_keys(Keys.ENTER)
-                    time.sleep(2)
-                    html1 = driver.page_source
-                    break
-                except ElementNotInteractableException:
-                    pass
-        except NotImplementedError:
+
+        html1 = reset_pas(driver, url, email2)
+        if not html1:
+            continue
+        html2 = reset_pas(driver, url, email2)
+        if not html2:
+            continue
+        html3 = reset_pas(driver, url, email2)
+        if not html3:
+            continue
+        html4 = reset_pas(driver, url, email1)
+        if not html4:
             continue
 
-        try:
-            while(1):
-                try:
-                    driver.get(url)
-                    elements = driver.find_elements_by_tag_name("input")
-                    element = find_email_input(elements)
-                    if element is None:
-                        print("Email input field not found")
-                        raise NotImplementedError
-                    element.send_keys(email2)
-                    time.sleep(1)
-                    element.send_keys(Keys.ENTER)
-                    time.sleep(2)
-                    html2 = driver.page_source
-                    break
-                except ElementNotInteractableException:
-                    pass
-        except NotImplementedError:
-            continue
-
-        text1 = htmlToText(html1)
+        # text1 = htmlToText(html1)
         text2 = htmlToText(html2)
-        if text1 == text2:
-            print("No")
+        text3 = htmlToText(html3)
+        text4 = htmlToText(html4)
+
+        # print(text2)
+        # print(text3)
+
+        if text2 != text3:
+            print("Do not know")
         else:
-            print("Yes")
+            if text2 == text4:
+                print("No")
+            else:
+                print("Yes")
 
 
 if __name__ == '__main__':
