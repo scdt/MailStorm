@@ -1,0 +1,7 @@
+https://account.reverso.net/Account/ForgotPassword
+https://login.springer.com/public/gp/resetpassword?url=https://www.springer.com/&flavour=springer
+https://www.goodreads.com/user/forgot_password
+https://www.jstor.org/action/resetPassword
+https://www.expedia.com/user/forgotpassword
+https://www.hotels.com/profile/forgottenpassword.html?pos=HCOM_US&locale=en_US&responsive=true
+https://genius.com/password_resets/new

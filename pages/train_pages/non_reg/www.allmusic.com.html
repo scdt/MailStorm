@@ -1,0 +1,722 @@
+<html lang="en" class="js "><!--<![endif]--><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"><link rel="preload" as="script" href="//rumcdn.geoedge.be/86a7d531-9b2a-4852-9111-4703d7cfeea0/grumi.js"><script type="text/javascript" src="https://bam-cell.nr-data.net/1/37e6a77380?a=39608998&amp;v=1208.49599aa&amp;to=NlMEYhZXW0oEWkQNVg8ZJ1UQX1pXSmlCC18IWgMZAllHXgpNbxRYEkURWRZS&amp;rst=1597&amp;ck=1&amp;ref=https://www.allmusic.com/forgot-password&amp;ap=9&amp;be=273&amp;fe=1577&amp;dc=895&amp;perf=%7B%22timing%22:%7B%22of%22:1619171349253,%22n%22:0,%22u%22:223,%22ue%22:223,%22f%22:6,%22dn%22:6,%22dne%22:6,%22c%22:6,%22ce%22:6,%22rq%22:7,%22rp%22:212,%22rpe%22:226,%22dl%22:233,%22di%22:893,%22ds%22:894,%22de%22:916,%22dc%22:1576,%22l%22:1576,%22le%22:1579%7D,%22navigation%22:%7B%7D%7D&amp;fp=544&amp;fcp=544&amp;at=GhQTFF5NSBVHWBJeQhxL&amp;jsonp=NREUM.setToken"></script><script src="https://js-agent.newrelic.com/nr-1208.min.js"></script><script src="https://rules.quantcount.com/rules-p-59TntzuqummDw.js" async=""></script><script src="https://secure.quantserve.com/quant.js" async="" type="text/javascript"></script><script async="" type="text/javascript" src="https://quantcast.mgr.consensu.org/tcfv2/cmp2.js?referer=www.allmusic.com"></script><script async="" type="text/javascript" src="https://quantcast.mgr.consensu.org/choice/59TntzuqummDw/www.allmusic.com/choice.js"></script><script type="text/javascript" async="" src="//p.cpx.to/p/12023/px.js"></script><script async="" src="https://sb.scorecardresearch.com/beacon.js"></script><script src="//media.complex.com/common/catalyst.js" type="text/javascript" async=""></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-M5C83T"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"37e6a77380",applicationID:"39608998"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(7),c=e(8),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(9);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e){return!(!e||!e.protocol||"file:"===e.protocol)}t.exports=r},{}],4:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(6),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],5:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],6:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],7:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],8:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],9:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(7),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!E++){var e=x.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(h,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+x.offset],null,"api"),c("timing",["load",n]);var r=l.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===l.readyState&&o()}function o(){c("mark",["domContent",a()+x.offset],null,"api")}var a=e(2),c=e("handle"),f=e(7),u=e("ee"),s=e(5),d=e(3),p=window,l=p.document,m="addEventListener",v="attachEvent",g=p.XMLHttpRequest,w=g&&g.prototype;if(d(p.location)){NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:g,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var y=""+location,h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1208.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=t.exports={offset:a.getLastTimestamp(),now:a,origin:y,features:{},xhrWrappable:b,userAgent:s};e(1),e(4),l[m]?(l[m]("DOMContentLoaded",o,!1),p[m]("load",r,!1)):(l[v]("onreadystatechange",i),p[v]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var E=0}},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(8),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+
+    <!-- iOS metadata -->
+    <meta name="apple-mobile-web-app-capable" content="no">
+            <meta name="viewport" content="width=device-width">
+    
+    <!-- android homescreen specific favicon -->
+    <link rel="icon" type="image/png" href="https://cdn-gce.allmusic.com/images/favicon/favicon-196x196.png?v=47BXOjEqB" sizes="196x196">
+
+    <!-- general favicon -->
+    <link rel="icon" href="https://cdn-gce.allmusic.com/images/favicon/favicon-96x96.png?v=47BXOjEqB" type="image/png" sizes="96x96">
+    <link rel="icon" href="https://cdn-gce.allmusic.com/images/favicon/favicon-32x32.png?v=47BXOjEqB" type="image/png" sizes="32x32">
+    <link rel="icon" href="https://cdn-gce.allmusic.com/images/favicon/favicon-16x16.png?v=47BXOjEqB" type="image/png" sizes="16x16">
+    <link rel="shortcut icon" href="https://cdn-gce.allmusic.com/images/favicon/favicon.ico?v=47BXOjEqB" type="image/x-icon">
+
+    <!-- iOS specific favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://cdn-gce.allmusic.com/images/favicon/ios/apple-touch-icon-120x120.png?v=47BXOjEqB">
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://cdn-gce.allmusic.com/images/favicon/ios/apple-touch-icon-76x76.png?v=47BXOjEqB">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://cdn-gce.allmusic.com/images/favicon/ios/apple-touch-icon-152x152.png?v=47BXOjEqB">
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="https://cdn-gce.allmusic.com/images/favicon/ios/apple-touch-icon-180x180.png?v=47BXOjEqB">
+    <meta name="apple-mobile-web-app-title" content="AllMusic">
+
+    <meta name="application-name" content="AllMusic">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss">
+    <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/kffpbhfpflaacppoegnbknokchggcoao">
+
+    
+    	<meta name="title" content="AllMusic | Record Reviews, Streaming Songs, Genres &amp; Bands">
+	<meta name="keywords" content="AllMusic,music recommendations,music reviews,bands,musician bios,musician biography,now available,music new releases,streaming music,music search">
+	<meta name="description" content="AllMusic provides comprehensive music info including reviews and biographies. Get recommendations for new music to listen to, stream or own.">
+
+    	<meta property="og:site_name" content="AllMusic">
+
+	<meta property="fb:app_id" content="415271808519760">
+
+	<meta property="og:title" content="AllMusic | Record Reviews, Streaming Songs, Genres &amp; Bands">
+	<meta name="twitter:title" content="AllMusic | Record Reviews, Streaming Songs, Genres &amp; Bands">
+
+	<meta property="og:description" content="AllMusic provides comprehensive music info including reviews and biographies. Get recommendations for new music to listen to, stream or own.">
+	<meta name="twitter:description" content="AllMusic provides comprehensive music info including reviews and biographies. Get recommendations for new music to listen to, stream or own.">
+
+    	<meta property="og:type" content="website">
+
+
+    <meta property="og:image" content="https://cdn-gce.allmusic.com/images/allmusic_facebook_share.png">
+    <meta property="og:url" content="https://www.allmusic.com/forgot-password">
+
+        <meta name="spotim-ads" content="disable-all">
+    
+    <link rel="canonical" href="https://www.allmusic.com/forgot-password">
+
+    <title>AllMusic | Record Reviews, Streaming Songs, Genres &amp; Bands</title>
+
+    <link type="text/css" rel="stylesheet" href="https://cdn-gce.allmusic.com/cache/dist/css/global/global-2eb5aeab81.css">
+            <link type="text/css" rel="stylesheet" href="https://cdn-gce.allmusic.com/cache/dist/css/pages/profile/generic-9f1c180f11.css">    
+    
+    
+    <!-- Alexa tag -->
+    <meta name="alexaVerifyID" content="SfgYrX5roRNK_iy-Mr_tFkRlY7M">
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-7096127-1', 'auto');
+
+                        ga('send', 'pageview', 'forgot-password');
+                setTimeout("ga('send','event','adjusted bounce rate','page visit 15 seconds or more')", 15000);
+            </script>
+
+    <!-- Google Tag Manager QunatCast-->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-M5C83T');</script>
+    <!-- End Google Tag Manager -->
+
+    
+    <!-- Media query polyfill ( Always require because loading via dynamic ajax injection is too slow [the enquire.js will fire before the ajax completes] ) -->
+    <script src="https://cdn-gce.allmusic.com/js/lib/media.match.min.js"></script>
+
+    <script src="https://cdn-gce.allmusic.com/cache/dist/js/setup-9f6bbfb219.js"></script>
+    <script>
+        (function(a,c,d,e){if(!a[c]){var b=a[c]={};b[d]=[];b[e]=function(a){b[d].push(a)}}})(window,'Scroll','_q','do');
+        Scroll.config = {
+            detected: document.cookie.indexOf("scroll0=") > -1
+        };
+    </script>
+    <script async="" src="https://static.scroll.com/js/scroll.js"></script>
+
+    <script>
+        if (document.cookie.indexOf("scroll0=") < 0) {
+            document.write("\x3Cscript>");
+            document.write("window.grumi = {");
+            document.write("key: '86a7d531-9b2a-4852-9111-4703d7cfeea0'");
+            document.write("};");
+            document.write("\x3C/script>");
+            document.write('\x3Cscript src="//rumcdn.geoedge.be/86a7d531-9b2a-4852-9111-4703d7cfeea0/grumi-ip.js" async>');
+            document.write("\x3C/script>");
+        }
+    </script><script>window.grumi = {key: '86a7d531-9b2a-4852-9111-4703d7cfeea0'};</script><script src="//rumcdn.geoedge.be/86a7d531-9b2a-4852-9111-4703d7cfeea0/grumi-ip.js" async=""></script>
+
+    
+            <script type="text/javascript">
+let catalystConfig = {
+site: 'allmusic',
+silo: 's_mus',
+zone: 'user',
+tier: 'to,t2,internal',
+kw: 'blockadexfalse',
+exclude: '',
+toolbar: {
+theme: 'grey'
+}
+};
+if (document.cookie.indexOf('scroll0=') < 0) {
+(function(window,document) {
+if(!window.catalyst) {
+var ns = document.createElement('script');
+ns.src = '//media.complex.com/common/catalyst.js';
+ns.type = 'text/javascript';
+ns.async = true;
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(ns, s);
+window.catalyst = window.catalyst || {cmd: []};
+}
+})(window, document);
+}
+</script>    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>!window.jQuery && document.write(unescape('%3Cscript src="https://cdn-gce.allmusic.com/js/jquery/jquery-2.2.4.min.js"%3E%3C/script%3E'))</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>!window.jQuery.ui && document.write(unescape('%3Cscript src="https://cdn-gce.allmusic.com/js/jquery/jquery-1.12.1.ui.min.js"%3E%3C/script%3E'))</script>
+
+    
+    <style type="text/css"> .qc-cmp-button.qc-cmp-secondary-button:hover {    background-color: #368bd6 !important;    border-color: transparent !important;  }  .qc-cmp-button.qc-cmp-secondary-button:hover {    color: #ffffff !important;  }  .qc-cmp-button.qc-cmp-secondary-button {    color: #368bd6 !important;  }  .qc-cmp-button.qc-cmp-secondary-button {    background-color: #eee !important;    border-color: transparent !important;  } </style><script src="https://s.cpx.to/fire.js?pid=12023&amp;ref=https%3A%2F%2Fwww.allmusic.com%2Fforgot-password&amp;hn_ver=11&amp;fid=d41f2fb8-72a7-4c2e-94ea-83680f347ce9"></script></head>
+<body>
+<noscript>
+    <div class="javascript-disabled" id="no-js">
+        AllMusic relies heavily on JavaScript.<br>
+        Please enable JavaScript in your browser to use the site fully.
+    </div>
+</noscript>
+
+<!-- Google Tag Manager (noscript) QunatCast-->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5C83T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<div class="stripe-container header-leaderboard" style="margin-bottom: 0px;">
+    <div class="advertising leaderboard">
+                    <div id="AllMusic_LB_Top"></div>            </div>
+</div>
+
+<div class="overflow-container user">
+
+<div class="stripe-container header-main-nav clearfix">
+    <div class="max-header">
+        <div class="main-nav">
+
+    <div class="logo-container">
+        <a class="logo no-snap" href="/">
+                            <h3 class="logo-img">AllMusic</h3>
+                    </a>
+    </div>
+
+    <nav class="mobile-menu"></nav>
+
+    <div class="search-container">
+        <form class="site-search" method="post" name="site-search" action="/search">
+            <input type="search" class="site-search-input" name="term" placeholder="Search" tabindex="1" autocomplete="off"><div class="allmusic-typeahead" style="display: none; position: absolute;"><div class="typeahead-results searching"><span class="typeahead-searching-msg" style=""><h3 style="color:#A9A9A9;">Searching<span class="dots"></span></h3></span></div><div class="see-all"></div></div>
+            <input type="submit" class="site-search-button" name="submit" value="">
+        </form>
+    </div>
+
+    <nav class="site-nav">
+        <div class="nav-contain">
+            <div class="new-releases top-nav-item">
+                <a href="/newreleases">New Releases</a>
+                <div class="sub-nav-outer-container">
+    <div class="sub-nav-container">
+        <div class="sub-nav-columns">
+            <div class="new-releases-subnav left">
+                <ul class="new-releases-nav">
+                    <li class="nr-featured">
+                        <a href="/newreleases">Featured New Releases</a>
+                    </li>
+                    <li class="nr-editorschoice">
+                        <a href="/newreleases/editorschoice">Editors' Choice</a>
+                    </li>
+                    <li class="nr-all">
+                        <a href="/newreleases/all">All New Releases</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="new-releases-subnav right">
+                <div class="sub-nav-content">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>            </div>
+            <div class="discover top-nav-item">
+                <a href="/discover">Discover</a>
+                <div class="sub-nav-outer-container">
+    <div class="sub-nav-container">
+        <div class="sub-nav-columns left">
+            <ul class="discover-nav">
+                <li id="discover-genres" class="discover-drop-trigger active">
+                    <a href="/genres">Genres<span class="genres-arrow" style="display:none">&nbsp;&nbsp;›</span></a>
+                </li>
+                <li id="discover-moods" class="discover-drop-trigger">
+                    <a href="/moods">Moods<span class="moods-arrow" style="display:none">&nbsp;&nbsp;›</span></a>
+                </li>
+                <li id="discover-themes" class="discover-drop-trigger">
+                    <a href="/themes">Themes<span class="themes-arrow" style="display:none">&nbsp;&nbsp;›</span></a>
+                </li>
+            </ul>
+       </div>
+        <div class="sub-nav-columns right">
+            <div class="discover-genre-secondary">
+    <div class="genre-column">
+        <!-- spacer to prevent hover weirdness -->
+    </div>
+    <div class="genre-column">
+        <ul>
+            <li class="individual">
+                <a href="/genre/blues-ma0000002467">Blues</a>
+            </li>
+            <li class="individual">
+                <a href="/genre/classical-ma0000002521">Classical</a>
+            </li>
+            <li class="individual">
+                <a href="/genre/country-ma0000002532">Country</a>
+            </li>
+        </ul>
+    </div>
+    <div class="genre-column">
+        <ul>
+            <li class="individual">
+                <a href="/genre/electronic-ma0000002572">Electronic</a>
+            </li>
+            <li class="individual">
+                <a href="/genre/folk-ma0000002592">Folk</a>
+            </li>
+            <li class="individual">
+                <a href="/genre/international-ma0000002660">International</a>
+            </li>
+        </ul>
+    </div>
+    <div class="genre-column">
+        <ul>
+            <li class="individual">
+                <a href="/genre/jazz-ma0000002674">Jazz</a>
+            </li>
+            <li class="individual">
+                <a href="/genre/latin-ma0000002692">Latin</a>
+            </li>
+            <li class="individual">
+                <a href="/genre/new-age-ma0000002745">New Age</a>
+            </li>
+        </ul>
+    </div>
+    <div class="genre-column">
+        <ul>
+            <li class="individual">
+                <a href="/genre/pop-rock-ma0000002613">Pop/Rock</a>
+            </li>
+            <li class="individual">
+                <a href="/genre/rap-ma0000002816">Rap</a>
+            </li>
+            <li class="individual">
+                <a href="/genre/r-b-ma0000002809">R&amp;B</a>
+            </li>
+        </ul>
+    </div>
+    <div class="genre-column">
+        <ul>
+            <li class="individual">
+                <a href="/genre/reggae-ma0000002820">Reggae</a>
+            </li>
+            <li class="individual">
+                <a href="/genre/stage-screen-ma0000004432">Stage &amp; Screen</a>
+            </li>
+            <li class="last">
+                <a href="/genres">All Genres</a>
+            </li>
+        </ul>
+    </div>
+</div>            <div class="discover-mood-secondary" style="display:none;">
+    <div class="mood-column">
+        <!-- spacer to prevent hover weirdness -->
+    </div>
+    <div class="mood-column">
+        <ul>
+            <li class="individual">
+                <a href="/mood/aggressive-xa0000000694">Aggressive</a>
+            </li>
+            <li class="individual">
+                <a href="/mood/bittersweet-xa0000000946">Bittersweet</a>
+            </li>
+            <li class="individual">
+                <a href="/mood/druggy-xa0000000979">Druggy</a>
+            </li>
+        </ul>
+    </div>
+    <div class="mood-column">
+        <ul>
+            <li class="individual">
+                <a href="/mood/energetic-xa0000000990">Energetic</a>
+            </li>
+            <li class="individual">
+                <a href="/mood/happy-xa0000001016">Happy</a>
+            </li>
+            <li class="individual">
+                <a href="/mood/hypnotic-xa0000000719">Hypnotic</a>
+            </li>
+        </ul>
+    </div>
+    <div class="mood-column">
+        <ul>
+            <li class="individual">
+                <a href="/mood/laid-back-mellow-xa0000001032">Laid Back/Mellow</a>
+            </li>
+            <li class="individual">
+                <a href="/mood/melancholy-xa0000000734">Melancholy</a>
+            </li>
+            <li>
+                <a href="/mood/passionate-xa0000001062">Passionate</a>
+            </li>
+        </ul>
+    </div>
+    <div class="mood-column">
+        <ul>
+            <li class="individual">
+                <a href="/mood/romantic-xa0000000758">Romantic</a>
+            </li>
+            <li class="individual">
+                <a href="/mood/sad-xa0000000761">Sad</a>
+            </li>
+            <li>
+                <a href="/mood/sentimental-xa0000000765">Sentimental</a>
+            </li>
+        </ul>
+    </div>
+    <div class="mood-column">
+        <ul>
+            <li>
+                <a href="/mood/sexy-xa0000000770">Sexy</a>
+            </li>
+            <li class="individual">
+                <a href="/mood/trippy-xa0000000749">Trippy</a>
+            </li>
+            <li class="last">
+                <a href="/moods">All Moods</a>
+            </li>
+        </ul>
+    </div>
+</div>            <div class="discover-theme-secondary" style="display:none;">
+    <div class="theme-column">
+        <!-- spacer to prevent hover weirdness -->
+    </div>
+    <div class="theme-column">
+        <ul>
+            <li class="individual">
+                <a href="/theme/background-music-ma0000006329">Background Music</a>
+            </li>
+            <li class="individual">
+                <a href="/theme/celebration-ma0000005042">Celebration</a>
+            </li>
+            <li class="individual">
+                <a href="/theme/cool-cocky-ma0000006328">Cool &amp; Cocky</a>
+            </li>
+        </ul>
+    </div>
+    <div class="theme-column">
+        <ul>
+            <li class="individual">
+                <a href="/theme/drinking-ma0000004252">Drinking</a>
+            </li>
+            <li class="individual">
+                <a href="/theme/hanging-out-ma0000006297">Hanging Out</a>
+            </li>
+            <li class="individual">
+                <a href="/theme/in-love-ma0000005076">In Love</a>
+            </li>
+        </ul>
+    </div>
+    <div class="theme-column">
+        <ul>
+            <li class="individual">
+                <a href="/theme/introspection-ma0000006318">Introspection</a>
+            </li>
+            <li class="individual">
+                <a href="/theme/late-night-ma0000006321">Late Night</a>
+            </li>
+            <li class="individual">
+                <a href="/theme/partying-ma0000004272">Partying</a>
+            </li>
+        </ul>
+    </div>
+    <div class="theme-column">
+        <ul>
+            <li class="individual">
+                <a href="/theme/rainy-day-ma0000005096">Rainy Day</a>
+            </li>
+            <li class="individual">
+                <a href="/theme/relaxation-ma0000006314">Relaxation</a>
+            </li>
+            <li class="individual">
+                <a href="/theme/road-trip-ma0000006287">Road Trip</a>
+            </li>
+        </ul>
+    </div>
+    <div class="theme-column">
+        <ul>
+            <li class="individual">
+                <a href="/theme/romantic-evening-ma0000006312">Romantic Evening</a>
+            </li>
+            <li class="individual">
+                <a href="/theme/sex-ma0000005107">Sex</a>
+            </li>
+            <li class="last">
+                <a href="/themes">All Themes</a>
+            </li>
+        </ul>
+    </div>
+</div>        </div>
+    </div>
+</div>            </div>
+            <div class="blog top-nav-item">
+                <a href="/blog">Articles</a>
+                <div class="sub-nav-outer-container">
+    <div class="sub-nav-container clearfix">
+        <div class="sub-nav-columns">
+            <div class="blog-list">
+                <ul>
+                    <li class="blog-features">
+                        <a href="/blog/features">Features</a>
+                    </li>
+                    <li class="blog-interviews">
+                        <a href="/blog/interviews-14">Interviews</a>
+                    </li>
+                    <li class="blog-lists">
+                        <a href="/blog/lists">Lists</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="blog-list">
+                <ul>
+                    <li class="blog-stream">
+                        <a href="/blog/stream-and-download">Streams</a>
+                    </li>
+                    <li class="blog-promotions">
+                        <a href="/videos">Videos</a>
+                    </li>
+                    <li class="blog-all">
+                        <a href="/blog">All Posts</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="blog-subnav right">
+                <div class="sub-nav-blog-content"></div>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+            <div class="recommendations top-nav-item">
+                <a href="/recommendations">Recommendations</a>
+            </div>
+            <div class="my-profile top-nav-item">
+                <a href="javascript:void(0)" class="my-profile-link">My Profile</a>
+            </div>
+            <div class="advanced-search top-nav-item">
+                <a href="/advanced-search" class="advanced-search-link">Advanced Search</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="user-social-nav">
+        <nav class="social-nav">
+            <ul>
+                <li class="facebook">
+                    <a href="https://www.facebook.com/AllMusicDotCom" title="Like us on Facebook">Facebook</a>
+                </li>
+                <li class="twitter">
+                    <a href="https://twitter.com/#!/Allmusic" title="Follow us on Twitter">Twitter</a>
+                </li>
+                <li class="tumblr">
+                    <a href="https://allmusic.tumblr.com" title="Follow us on Tumblr">Tumblr</a>
+                </li>
+                <li class="rss">
+                    <a href="/rss" title="Subscribe to our RSS feed" target="_blank">RSS</a>
+                </li>
+            </ul>
+        </nav>
+
+        <nav class="user-notifications">
+            <ul>
+                <li class="user-notification-icon">
+                </li>
+            </ul>
+        </nav>
+
+        <nav class="user-nav">        <ul class="user-nav-not-logged-in">
+        <li class="user-sign-up">
+            <a href="/join">Sign Up</a>
+        </li>
+        <li class="user-nav-divider-line">|</li>
+        <li class="user-log-in">
+            <a href="#" class="open-login-modal">Log in</a>
+        </li>
+    </ul>
+    </nav>
+    </div>
+
+</div>    </div>
+</div>
+
+<div id="cmn_wrap">
+<div class="content-wrapper">
+    <div class="content-container">
+
+        <h1>Forgot Your <em>Password?</em></h1>
+
+        <p>We can email you instructions to reset your password.</p>
+
+                    <div class="form-error">
+                User not found            </div>
+        
+        <form method="post">
+            <p>
+                
+                <input type="email" name="email" value="emailexample2@inbox.lv" placeholder="E-mail Address" tabindex="1" maxlength="256" required="">
+            </p>
+
+            <p class="hidden">
+                <input type="text" name="country">
+            </p>
+            <input type="hidden" name="csrf_token" value="j7UzwVrIFzCG4ce38G8eejRbLGCSzDoR">
+            <input type="submit" name="submit" class="button" tabindex="2" value="Send Instructions">
+        </form>
+
+    </div>
+</div>
+
+<div class="stripe-container footer-leaderboard">
+            <div class="advertising leaderboard">
+            <div id="AllMusic_LB_Foot"></div>        </div>
+    </div>
+<div class="stripe-container footer-container">
+    <div class="inner-footer-container">
+        <footer>
+            <div class="other-sites">
+                    <a href="//www.allmusic.com/" title="AllMusic - Albums and Artist Database - Music Search, Guide, Recommendations, Videos and Reviews">AllMusic</a>&nbsp;&nbsp;|&nbsp;
+                    <a href="https://www.allmovie.com/" title="AllMovie - Movies and Films Database - Movie Search, Guide, Recommendations, and Reviews">AllMovie</a>&nbsp;&nbsp;|&nbsp;
+                    <a href="https://www.sidereel.com/" title="SideReel - Watch TV &amp; Movies Online | Episodes, Seasons, Series | SideReel">SideReel</a>&nbsp;&nbsp;|&nbsp;
+                    <a href="https://www.celebified.com/" title="Celebified - Celebrity news, watch videos, get tv info">Celebified</a>
+            </div>
+
+            <div class="corporate-links">
+                    <a href="/about" title="AllMusic About">About</a>&nbsp;&nbsp;|&nbsp;
+                    <a href="/faq" title="AllMusic FAQ">FAQ</a>&nbsp;&nbsp;|&nbsp;
+                    <a href="https://allmedianetwork.helprace.com/s1-allmusic" title="AllMusic Customer Community" class="helpraceLink">Feedback</a><span class="line-one">&nbsp;&nbsp;|&nbsp;</span>
+                    <a href="/advertise" title="AllMusic Advertising Network"><br class="mobile-break">Advertise</a>&nbsp;&nbsp;|&nbsp;
+                    <a href="/copyright-policy" title="AllMusic - Copyright Policy &amp; Intellectual Property Rights">Copyright Policy</a>&nbsp;&nbsp;|&nbsp;
+                    <a href="/privacy-notice" title="Privacy Notice">Privacy Notice</a>&nbsp;&nbsp;|&nbsp;
+                    <a href="/terms-of-service" title="AllMusic Terms of Service">Terms of Service</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a href="/weekly-new-releases-email" title="New Releases Newsletter">New Releases Newsletter</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a href="/subscribe" title="Subscribe">Remove Ads</a>
+            </div>
+
+            <div class="copyright">
+                    ©2021 AllMusic, Netaktion LLC<span class="line-two">&nbsp;&nbsp;|&nbsp;&nbsp;</span><br class="mobile-break">All Rights Reserved
+            </div>
+        </footer>
+        <div id="choice-footer-msg"></div>
+        <div class="ad-padding"></div>
+    </div>
+</div>
+<script src="https://cdn-gce.allmusic.com/cache/dist/js/global-db8a0802f1.js"></script>
+
+
+    <script>
+        if(User.loggedIn) {
+            ga('set', 'dimension1', 'Yes');
+                            ga('set', 'dimension3', 'No');
+                    } else {
+            ga('set', 'dimension1', 'No');
+        }
+    </script>
+
+<!-- Begin comScore Tag -->
+<script>
+    var _comscore = _comscore || [];
+    _comscore.push({ c1: "2", c2: "6685975" });
+    (function() {
+        var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+        s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+        el.parentNode.insertBefore(s, el);
+    })();
+</script>
+<noscript>
+    <img src="//b.scorecardresearch.com/p?c1=2&c2=6685975&cv=2.0&cj=1" alt="scorecard pixel" />
+</noscript>
+<!-- End comScore Tag -->
+
+</div>
+</div>
+
+    <script type="text/javascript">
+if (document.cookie.indexOf("scroll0=") < 0) {
+if ( isMobile_AllMusic ) {
+window.catalyst.cmd.push('loadAds',[
+['top', 'AllMusic_LB_Top'],['footer', 'AllMusic_LB_Foot']
+]);
+} else {
+window.catalyst.cmd.push('loadAds',[
+['top', 'AllMusic_LB_Top'],['footer', 'AllMusic_LB_Foot']
+]);
+}
+}
+</script>
+<!-- Double Verify -->
+<script>
+    if (document.cookie.indexOf("scroll0=") < 0) {
+        document.write('<img src="https://tps30.doubleverify.com/visit.jpg?ctx=2908533&cmp=2736444&sid=24324&plc=DV-RTHM20170324001&advid=2908534&region=30&btadsrv=rhythmone&app=appid&sup=sspid&DVP_DV_TT=2&DVP_DV_CT=1&DVP_APPID=NotApplicable&DVP_SSPID=NotApplicable&DVP_PUBID=NotApplicable&DVP_PP_BUNDLE_ID=NotApplicable&DVP_RO_SSPID=NotApplicable&DVP_PP_ORTB_PUB_ID=NotApplicable&DVP_RO_SITEID=NotApplicable&DVP_RO_TRAFFIC=NotApplicable&DVP_PP_DEAL_ID=NotApplicable&DVPX_PP_IMP_ID=NotApplicable&DVPX_PP_UID=NotApplicable&DVP_RO_CDID=NotApplicable&DVPX_PP_AUCTION_UA=Mozilla%2F5.0+%28X11%3B+Linux+x86_64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F90.0.4430.85+Safari%2F537.36&DVP_PP_AUCTION_IP=10.128.0.3&turl=AllMusic.com&dvtagver=6.1.img" alt="" width="0" height="0">');
+    }
+</script><img src="https://tps30.doubleverify.com/visit.jpg?ctx=2908533&amp;cmp=2736444&amp;sid=24324&amp;plc=DV-RTHM20170324001&amp;advid=2908534&amp;region=30&amp;btadsrv=rhythmone&amp;app=appid&amp;sup=sspid&amp;DVP_DV_TT=2&amp;DVP_DV_CT=1&amp;DVP_APPID=NotApplicable&amp;DVP_SSPID=NotApplicable&amp;DVP_PUBID=NotApplicable&amp;DVP_PP_BUNDLE_ID=NotApplicable&amp;DVP_RO_SSPID=NotApplicable&amp;DVP_PP_ORTB_PUB_ID=NotApplicable&amp;DVP_RO_SITEID=NotApplicable&amp;DVP_RO_TRAFFIC=NotApplicable&amp;DVP_PP_DEAL_ID=NotApplicable&amp;DVPX_PP_IMP_ID=NotApplicable&amp;DVPX_PP_UID=NotApplicable&amp;DVP_RO_CDID=NotApplicable&amp;DVPX_PP_AUCTION_UA=Mozilla%2F5.0+%28X11%3B+Linux+x86_64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F90.0.4430.85+Safari%2F537.36&amp;DVP_PP_AUCTION_IP=10.128.0.3&amp;turl=AllMusic.com&amp;dvtagver=6.1.img" alt="" width="0" height="0">
+<!-- End Double Verify -->
+
+    <!-- captify pixel -->
+    <script>
+        if (document.cookie.indexOf("scroll0=") < 0) {
+                        (function (c, a, p, t, i, f, y) {
+                i = c.createElement(a);
+                t = c.getElementsByTagName(a)[0];
+                i.type = 'text/javascript';
+                i.async = true;
+                i.src = p;
+                t.parentNode.insertBefore(i, t);
+            })(document, 'script', '//p.cpx.to/p/12023/px.js');
+        }
+    </script>
+
+
+    <script>
+        if (document.cookie.indexOf("scroll0=") < 0) {
+            $.getScript("/ads.js", function (data, textStatus, jqxhr) {
+                // success block
+                ga('send', 'event', 'setCustomDimension', 1, {
+                    'dimension2': 'not_adblocking',
+                    'nonInteraction': true
+                });
+
+            })
+                .fail(function () {
+                    ga('send', 'event', 'setCustomDimension', 1, {
+                        'dimension2': 'is_adblocking',
+                        'nonInteraction': true
+                    });
+
+                    // fire ad block detected GA event
+                    allmusic.gaTrackEvent({data: ["AdBlock", "Interaction", "User Has Adblock Enabled"]});
+                    if (!Cookie.read('adblock_dismiss')) {
+
+                        // fire ad block modal fires GA event
+                        allmusic.gaTrackEvent({data: ["AdBlock", "Interaction", "AdBlock Modal Fires"]});
+
+                        $.ajax({
+                            url: protocol + urlSubdomain + '.allmusic.com/blocker_check',
+                            type: 'GET',
+                            cache: false,
+                            success: function (data) {
+                                // append to body
+                                $(document).find('body').append(data);
+                                // lock body
+                                $(document).find('body').addClass('noscroll');
+                                document.getElementById('cmn-toolbar-wrap').style.zIndex = 20000;
+                            }
+                        });
+
+                    } else {
+                        allmusic.gaTrackEvent({data: ["AdBlock", "Interaction", "User Has AdBlock Dismiss Cookie"]});
+                    }
+                });
+            // log Scroll as No
+            ga('set', 'dimension4', 'No');
+        } else {
+            // log Scroll as Yes
+            ga('set', 'dimension4', 'Yes');
+        }
+    </script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","licenseKey":"37e6a77380","applicationID":"39608998","transactionName":"NlMEYhZXW0oEWkQNVg8ZJ1UQX1pXSmlCC18IWgMZAllHXgpNbxRYEkURWRZS","queueTime":0,"applicationTime":9,"atts":"GhQTFF5NSBVHWBJeQhxL","errorBeacon":"bam-cell.nr-data.net","agent":""}</script>
+
+<script type="text/javascript" id="">(function(){function r(){function t(){var c=f.document,g=!!f.frames[u];if(!g)if(c.body){var l=c.createElement("iframe");l.style.cssText="display:none";l.name=u;c.body.appendChild(l)}else setTimeout(t,5);return!g}function D(){var c=arguments;if(c.length)if("setGdprApplies"===c[0]){if(3<c.length&&2===c[2]&&"boolean"===typeof c[3]&&"function"===typeof c[2])c[2]("set",!0)}else if("ping"===c[0]){var g={gdprApplies:g,cmpLoaded:!1,cmpStatus:"stub"};if("function"===typeof c[2])c[2](g)}else w.push(c);else return w}
+function q(c){var g="string"===typeof c.data,l={};try{l=g?JSON.parse(c.data):c.data}catch(h){}var m=l.__tcfapiCall;m&&window.__tcfapi(m.command,m.version,function(h,x){h={__tcfapiReturn:{returnValue:h,success:x,callId:m.callId}};g&&(h=JSON.stringify(h));c.source.postMessage(h,"*")},m.parameter)}for(var u="__tcfapiLocator",w=[],f=window,v;f;){try{if(f.frames[u]){v=f;break}}catch(c){}if(f===window.top)break;f=f.parent}v||(t(),f.__tcfapi=D,f.addEventListener("message",q,!1))}var y="www.allmusic.com",
+n=document.createElement("script"),z=document.getElementsByTagName("script")[0];y="https://quantcast.mgr.consensu.org".concat("/choice/",google_tag_manager["GTM-M5C83T"].macro(2),"/",y,"/choice.js");var A=0,E=3;n.async=!0;n.type="text/javascript";n.src=y;z.parentNode.insertBefore(n,z);r();var B=function(){var t=arguments;typeof window.__uspapi!==B&&setTimeout(function(){"undefined"!==typeof window.__uspapi&&window.__uspapi.apply(window.__uspapi,t)},500)};n=function(){A++;window.__uspapi===B&&A<E?console.warn("USP is not accessible"):
+clearInterval(F)};if("undefined"===typeof window.__uspapi){window.__uspapi=B;var F=setInterval(n,6E3)}})();
+(function(){function r(a){b=",";for(var d in a)a[d]&&(b+=d+",");return b}function y(){var a=new XMLHttpRequest;a.onreadystatechange=function(){if(4==this.readyState&&200==this.status){var d=JSON.parse(this.responseText);d.hasOwnProperty("nonIabVendorList")&&(g=d.nonIabVendorList,Object.keys(g).forEach(function(k){h[g[k].vendorId]=g[k].name}))}};a.open("GET",D,!0);a.send()}function n(){var a=new XMLHttpRequest;a.onreadystatechange=function(){if(4==this.readyState&&200==this.status){var d=JSON.parse(this.responseText);
+d.hasOwnProperty("vendors")&&(q=d.vendors,Object.keys(q).forEach(function(k){f[q[k].id]=q[k].name}))}};a.open("GET",t,!0);a.send()}function z(a){window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:"__cmpLoaded",__cmpLoaded:!0,gdpr:a.gdprApplies})}function A(a){window.dataLayer=window.dataLayer||[];a.hasOwnProperty("publisher")&&(H=r(a.publisher.consents),I=r(a.publisher.legitimateInterests));a.hasOwnProperty("purpose")&&(J=r(a.purpose.consents),K=r(a.purpose.legitimateInterests));var d=
+0,k=setInterval(function(){d+=1;100===d&&clearInterval(k);q&&g&&(clearInterval(k),a.gdprApplies?a.hasOwnProperty("vendor")&&Object.keys(a.vendor.consents).forEach(function(e){if(a.vendor.consents[e]||!a.gdprApplies)c[e]=f[e],v[e]=e}):(c=f,f.forEach(function(e,C){v[C]=C})),w=c.filter(Boolean).join("|"),u=v.filter(Boolean).join(","),window.__tcfapi("getNonIABVendorConsents",2,function(e,C){C&&(e.gdprApplies?Object.keys(e.nonIabVendorConsents).forEach(function(p){if(e.nonIabVendorConsents[p]||!e.gdprApplies)G[p]=
+h[p],x[p]=p}):(G=h,h.forEach(function(p,L){x[L]=L})));m=G.filter(Boolean).join("|");l=x.filter(Boolean).join(",");window.dataLayer.push({event:"__cmpConsents",__cmpConsents:{iabVendorConsentIds:u,iabVendorsWithConsent:w,nonIABVendorConsentIds:l,nonIABVendorsWithConsent:m,gdpr:a.gdprApplies,publisherConsents:H,publisherLegitimateInterests:I,purposeConsents:J,purposeLegitimateInterests:K}})}))},100)}function E(a){google_tag_manager["GTM-M5C83T"].macro(3)&&window.__uspapi("uspPing",1,function(d,k){var e=document.getElementById(google_tag_manager["GTM-M5C83T"].macro(4));
+k&&d.mode.includes("USP")&&d.jurisdiction.includes(d.location.toUpperCase())&&null!==e&&(e.innerHTML+='We use cookies and other data collection technologies to provide the best experience for our customers. You may request that your data not be shared with third parties here: \x3ca href\x3d"#" onclick\x3d"window.__uspapi(\'displayUspUi\');"\x3eDo Not Sell My Data\x3c/a\x3e.',e.classList.add("ccpa-msg-added"),window.__uspapi("setUspDftData",1,function(C,p){p||console.log("Error: USP string not updated!")}))})}
+var B=(new Date).getTime(),F=window.location.hostname,t="https://test.quantcast.mgr.consensu.org/GVL-v2/vendor-list.json",D="https://quantcast.mgr.consensu.org".concat("/choice/",google_tag_manager["GTM-M5C83T"].macro(5),"/",F,"/.well-known/noniab-vendorlist.json").concat("?timestamp\x3d",B),q,u,w,f=[],v=[],c=[],g,l,m,h=[],x=[],G=[],H,I,J,K;google_tag_manager["GTM-M5C83T"].macro(6)&&(n(),y());window.__tcfapi("addEventListener",2,function(a,d){if(d)switch(a.eventStatus){case "cmpuishown":google_tag_manager["GTM-M5C83T"].macro(7)&&z(a);break;case "tcloaded":google_tag_manager["GTM-M5C83T"].macro(8)&&
+(z(a),A(a));google_tag_manager["GTM-M5C83T"].macro(9)&&E(a);break;case "useractioncomplete":google_tag_manager["GTM-M5C83T"].macro(10)&&A(a)}})})();</script><iframe name="__tcfapiLocator" style="display: none;"></iframe>
+<div id="PGRgDhbHAZXq" style="display: none;"></div></body></html>

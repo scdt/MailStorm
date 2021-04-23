@@ -9,15 +9,13 @@ def htmlToText(html):
     h = h2t.HTML2Text()
     h.ignore_links = True
     text = h.handle(html)
-    # text = re.sub(r'\*\s+.*|#+\s*.*', '', text)
-    # text = re.sub(r'!\S+', '', text)
+    text = re.sub(r'\*\s+.*|#+\s*.*', '', text)
+    text = re.sub(r'!\S+', '', text)
     text = re.sub(r'\S.jpeg|\S.jpg|\S.svg|\S.png', '', text)
     text = text.lower()
     text = text.replace("'", ' ')
     text = re.sub(r'[^a-z\s]', '', text)
     text = re.sub(r'\n{2,}', '\n', text)
-    ps = PorterStemmer()
-    text = ps.stem(text)
     stop_words = set(stopwords.words('english'))
     stop_words.difference_update({'should', 'no', 'not'})
     stop_words.update({'one', 'distribution', 'ace', 'rewards', 'cookies', 'create', 'online', 'music', 'youtube', 'english',
@@ -29,64 +27,29 @@ def htmlToText(html):
     return text
 
 
-def trainAndTest():
-    train_htmls = []
-    train_htmls_new1 = []
-    train_htmls_new2 = []
-    train_htmls_new3 = []
-    test_htmls = []
-    test_htmls_new1 = []
-    test_htmls_new2 = []
-    for file in os.scandir('train_pages_cmp'):
+def htmlCmp(nr_dir1, nr_dir2, a_dir):
+    texts = []
+    texts_nr1 = []
+    texts_nr2 = []
+    filenames = []
+    for file in os.scandir(a_dir):
         filename = os.fsdecode(file)
-        if filename.endswith('.html'):
-            if filename.find('NoReg.') != -1:
-                with open(filename) as file1:
-                    train_htmls.append(file1.read())
-                with open(filename[:-5] + '1.html') as file2:
-                    train_htmls_new1.append(file2.read())
-                with open(filename[:-5] + '2.html') as file3:
-                    train_htmls_new2.append(file3.read())
-                with open(filename[:-5] + '3.html') as file4:
-                    train_htmls_new3.append(file4.read())
-
-    for file in os.scandir('test_pages_cmp'):
+        filenames.append(filename)
+        with open(filename) as file1:
+            texts.append(htmlToText(file1.read()))
+    for file in os.scandir(nr_dir1):
         filename = os.fsdecode(file)
-        if filename.endswith('.html'):
-            if filename.find('NoReg.') != -1:
-                with open(filename) as file1:
-                    test_htmls.append(file1.read())
-                with open(filename[:-5] + '1.html') as file2:
-                    test_htmls_new1.append(file2.read())
-                with open(filename[:-5] + '2.html') as file3:
-                    test_htmls_new2.append(file3.read())
-
-    print("train text cmp new1 and new2")
-    for html, html_new in zip(train_htmls_new1, train_htmls_new2):
-        text = htmlToText(html)
-        text_new = htmlToText(html_new)
-        if(text == text_new):
-            print('same text')
-    print("train text cmp new2 and new3")
-    for html, html_new in zip(train_htmls_new2, train_htmls_new3):
-        text = htmlToText(html)
-        text_new = htmlToText(html_new)
-        if(text == text_new):
-            print('same text')
-    print("train text cmp new1 and new3")
-    for html, html_new in zip(train_htmls_new1, train_htmls_new3):
-        text = htmlToText(html)
-        text_new = htmlToText(html_new)
-        if(text == text_new):
-            print('same text')
-
-    print("test text cmp new1 and new2")
-    for html, html_new in zip(test_htmls_new1, test_htmls_new2):
-        text = htmlToText(html)
-        text_new = htmlToText(html_new)
-        if(text == text_new):
-            print('same text')
-
-
-if __name__ == '__main__':
-    trainAndTest()
+        with open(filename) as file1:
+            texts_nr1.append(htmlToText(file1.read()))
+    for file in os.scandir(nr_dir2):
+        filename = os.fsdecode(file)
+        with open(filename) as file1:
+            texts_nr2.append(htmlToText(file1.read()))
+    for text, text1, text2, filename in zip(texts, texts_nr1, texts_nr2, filenames):
+        print(filename)
+        if text1 != text2:
+            print("Even non registered are different")
+        elif text != text1:
+            print('Yes')
+        else:
+            print("Don't know")

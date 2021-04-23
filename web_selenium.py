@@ -11,15 +11,16 @@ import html2text as h2t
 import re
 import time
 
-email1 = 'emailexample1@inbox.lv'
+nonreg_folder = 'htmlpages_nonreg'
 email2 = 'emailexample2@inbox.lv'
+email3 = 'emailexample3@inbox.lv'
 urls = ['https://github.com/password_reset', 'https://trello.com/forgot', 'https://9gag.com/recover', 'https://www.allmusic.com/forgot-password',
         'https://kr.battle.net/account/recovery/en/identify-account.html?requestType=PASSWORD_RESET', 'https://new.edmodo.com/account_recovery',
         'https://gen.xyz/account/pwreset.php', 'https://www.netflix.com/ru-en/LoginHelp', 'https://ltv.tapjoy.com/s/l#session/forgot',
         'https://twitter.com/account/begin_password_reset', 'https://vimeo.com/forgot_password',
         'https://www.duolingo.com/forgot_password', 'https://nanowrimo.org/forgot-password']
 
-# urls = ['https://ltv.tapjoy.com/s/l#session/forgot', 'https://nanowrimo.org/forgot-password']
+# urls = ['https://new.edmodo.com/account_recovery']
 
 
 def htmlToText(html):
@@ -44,13 +45,22 @@ def htmlToText(html):
     return text
 
 
-'''
-Метод для поиска поля ввода email
-Принимает лист из WebEelement, возрващает найденный WebElement или None
-'''
+def load_wait(driver):
+    time.sleep(1)
+    for _ in range(3):
+        page_state = driver.execute_script("return document.readyState;")
+        if page_state == "complete":
+            break
+        time.sleep(1)
+    time.sleep(3)
+    return
 
 
 def find_email_input(elements):
+    '''
+    Метод для поиска поля ввода email
+    Принимает лист из WebEelement, возрващает найденный WebElement или Non
+    '''
     if len(elements) == 1:
         return elements[0]
     elements1 = []
@@ -151,78 +161,71 @@ def find_button(driver):
 
 
 def reset_pas(driver, url, email):
-    count = 0
-    timeout = False
-    while(1):
+    try:
+        driver.get(url)
+    except TimeoutException:
+        pass
+    for count in range(3):
+        # Найти все элементы с тэгом input
+        elements = driver.find_elements_by_tag_name("input")
+        # print("Input tags:", len(elements))
+        # Найти среди них поле ввода email
+        element = find_email_input(elements)
+        if element is None:
+            print("Email input field not found")
+            return False
+        # Ввести в поле данные
         try:
-            if not timeout:
-                driver.get(url)
-            # Найти все элементы с тэгом input
-            elements = driver.find_elements_by_tag_name("input")
-            # Найти среди них поле ввода email
-            element = find_email_input(elements)
-            if element is None:
-                print("Email input field not found")
-                return False
-            # Ввести в поле данные
             element.send_keys(email)
-            time.sleep(1)
-            # Нажать Enter
-            element.send_keys(Keys.ENTER)
-            while(1):
-                page_state = driver.execute_script("return document.readyState;")
-                if page_state == "complete":
-                    break
-            time.sleep(1)
-            return driver.page_source
         except ElementNotInteractableException:
-            if count > 2:
-                print("Element not interactable 3 times")
+            time.sleep(1)
+            continue
+        time.sleep(1)
+        html_old = driver.page_source
+        # Нажать Enter
+        try:
+            element.send_keys(Keys.ENTER)
+        except Exception:
+            print('Send_keys Enter exception')
+        load_wait(driver)
+        html_new = driver.page_source
+        if html_old != html_new:
+            return html_new
+        else:
+            button = find_button(driver)
+            try:
+                button.click()
+                load_wait(driver)
+                html_new = driver.page_source
+                if html_old != html_new:
+                    return html_new
+                else:
+                    return False
+            except:
+                print("Exception with button")
                 return False
-            count += 1
-        except TimeoutException:
-            timeout = True
+    print("Element not interactable 3 times")
+    return False
 
 
-def main():
+def save_htmls(email, input_file, folder):
+    path = './' + folder + '/'
     options = webdriver.ChromeOptions()
-    # Скрыть окно браузера или нет
     options.headless = False
     driver = webdriver.Chrome(executable_path='./chromedriver', options=options)
     driver.set_page_load_timeout(10)
     driver.get('https://www.google.com/')
+    urls = []
+    with open('./' + input_file, 'r') as f:
+        for row in f:
+            urls.append(row)
     for url in urls:
         print('*' * 10, url, '*' * 10)
-
-        html1 = reset_pas(driver, url, email2)
-        if not html1:
+        html = reset_pas(driver, url, email)
+        if not html:
             continue
-        html2 = reset_pas(driver, url, email2)
-        if not html2:
-            continue
-        html3 = reset_pas(driver, url, email2)
-        if not html3:
-            continue
-        html4 = reset_pas(driver, url, email1)
-        if not html4:
-            continue
-
-        # text1 = htmlToText(html1)
-        text2 = htmlToText(html2)
-        text3 = htmlToText(html3)
-        text4 = htmlToText(html4)
-
-        # print(text2)
-        # print(text3)
-
-        if text2 != text3:
-            print("Do not know")
         else:
-            if text2 == text4:
-                print("No")
-            else:
-                print("Yes")
-
-
-if __name__ == '__main__':
-    main()
+            i = url.replace('//', '').find('/') + 2
+            f = open(f'{path+url[url.find("//") + 2: i]}.html', 'w')
+            f.write(html)
+            f.close()
