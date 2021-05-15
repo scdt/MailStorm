@@ -121,7 +121,10 @@ def CBclassifier(input_dir):
     saved_vect = open('./ml/cb/saved_vect', 'rb')
     vectorizer = pickle.load(saved_vect)
     htmls = []
+    filenames = []
     for file in os.scandir(input_dir):
+        filename = os.fsdecode(file)
+        filenames.append(filename)
         with open(file) as file1:
             htmls.append(file1.read())
     texts = []
@@ -129,8 +132,13 @@ def CBclassifier(input_dir):
         texts.append(htmlToText(html))
     test_set = vectorizer.transform(texts)
     predict = clfCB.predict(test_set.toarray())
-    print(predict)
     # вывод
+    for file, p in zip(filenames, predict):
+        print(file)
+        if p:
+            print('Yes')
+        else:
+            print("No")
     return
 
 
@@ -140,7 +148,10 @@ def NBclassifier(input_dir):
     saved_vect = open('./ml/nb/saved_vect', 'rb')
     vectorizer = pickle.load(saved_vect)
     htmls = []
+    filenames = []
     for file in os.scandir(input_dir):
+        filename = os.fsdecode(file)
+        filenames.append(filename)
         with open(file) as file1:
             htmls.append(file1.read())
     texts = []
@@ -148,6 +159,11 @@ def NBclassifier(input_dir):
         texts.append(htmlToText(html))
     test_set = vectorizer.transform(texts)
     predict = clfNB.predict(test_set.toarray())
-    print(predict)
     # вывод
+    for file, p in zip(filenames, predict):
+        print(file)
+        if p:
+            print('Yes')
+        else:
+            print("No")
     return
