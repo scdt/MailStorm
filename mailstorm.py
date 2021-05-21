@@ -1,12 +1,11 @@
 #! /usr/bin/python3
 import getopt
 import sys
-from web_selenium import save_htmls
-from htmlCmp import htmlCmp
-from htmlClassifier import CBclassifier
-from htmlClassifier import NBclassifier
 import colored
 import random
+import htmlClassifier
+import htmlParser
+import webSelenium
 
 email2 = 'emailexample2@inbox.lv'
 email3 = 'emailexample3@inbox.lv'
@@ -21,8 +20,7 @@ def main():
     try:
         opts, args = getopt.getopt(sys.argv[1:], "hfdao:e:u:1:2:i:m:", ["help", "full", "download", "analyze", "output-dir=", "email=", "urls=", "input-dir-nr1=", "input-dir-nr2=", "input-dir=", "method="])
     except getopt.GetoptError as err:
-        # print help information and exit:
-        print(err)  # will print something like "option -a not recognized"
+        print(err)
         sys.exit(2)
 
     output_dir = None
@@ -36,7 +34,6 @@ def main():
         print('Options required, try -h or --help for more information')
         return
 
-    # print(opts)
     o, a = opts[0]
     if o in ("-h", "--help"):
         print("Usefull information")
@@ -52,7 +49,7 @@ def main():
                 urls = a
             else:
                 assert False, "unhandled option for download"
-        save_htmls(email, urls, output_dir)
+        webSelenium.save_htmls(email, urls, output_dir)
     elif o in ("-a", "--analyze"):
         for o, a in opts[1:]:
             if o in ("-1", "--input-dir-nr1"):
@@ -66,11 +63,11 @@ def main():
             else:
                 assert False, "unhandled option for analyze"
         if method == "1":
-            htmlCmp(nr_dir1, nr_dir2, input_dir)
+            htmlParser.htmlCmp(nr_dir1, nr_dir2, input_dir)
         elif method == "cb":
-            CBclassifier(input_dir)
+            htmlClassifier.CBclassifier(input_dir)
         elif method == "nb":
-            NBclassifier(input_dir)
+            htmlClassifier.NBclassifier(input_dir)
         else:
             assert False, "method not specified"
     else:
