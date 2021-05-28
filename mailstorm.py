@@ -3,7 +3,8 @@ import getopt
 import sys
 import colored
 import random
-import htmlClassifier
+import catBoostHtmlClassifier
+import kNeighboursHtmlClassifier
 import htmlParser
 import webSelenium
 
@@ -65,9 +66,9 @@ def main():
         if method == "1":
             htmlParser.htmlCmp(nr_dir1, nr_dir2, input_dir)
         elif method == "cb":
-            htmlClassifier.CBclassifier(input_dir)
+            catBoostHtmlClassifier.predict(input_dir)
         elif method == "nb":
-            htmlClassifier.NBclassifier(input_dir)
+            kNeighboursHtmlClassifier.predict(input_dir)
         else:
             assert False, "method not specified"
     else:

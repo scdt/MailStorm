@@ -9,7 +9,7 @@ import time
 
 class webSelenium():
 
-    def load_wait(driver):
+    def loadWait(driver):
         time.sleep(1)
         for _ in range(3):
             page_state = driver.execute_script("return document.readyState;")
@@ -23,7 +23,7 @@ class webSelenium():
     Метод для поиска поля ввода email
     Принимает лист из WebEelement, возрващает найденный WebElement или Non
     '''
-    def find_email_input(elements):
+    def findEmailInput(elements):
         if len(elements) == 1:
             return elements[0]
         elements1 = []
@@ -53,7 +53,7 @@ class webSelenium():
     Метод для поиска кнопки сброса пароля
     Возвращает WebElement или None
     '''
-    def find_button(driver):
+    def findButton(driver):
         inputs = driver.find_elements_by_tag_name("input")
         buttons = driver.find_elements_by_tag_name("button")
         if buttons:
@@ -114,14 +114,14 @@ class webSelenium():
             return inputs3[0]
         return None
 
-    def reset_pas(self, driver, url, email):
+    def resetPas(self, driver, url, email):
         try:
             driver.get(url)
         except TimeoutException:
             pass
         for count in range(3):
             elements = driver.find_elements_by_tag_name("input")
-            element = self.find_email_input(elements)
+            element = self.findEmailInput(elements)
             if element is None:
                 print("Email input field not found")
                 return False
@@ -136,15 +136,15 @@ class webSelenium():
                 element.send_keys(Keys.ENTER)
             except Exception:
                 print('Send_keys Enter exception')
-            self.load_wait(driver)
+            self.loadWait(driver)
             html_new = driver.page_source
             if html_old != html_new:
                 return html_new
             else:
-                button = self.find_button(driver)
+                button = self.findButton(driver)
                 try:
                     button.click()
-                    self.load_wait(driver)
+                    self.loadWait(driver)
                     html_new = driver.page_source
                     if html_old != html_new:
                         return html_new
@@ -156,7 +156,7 @@ class webSelenium():
         print("Element not interactable 3 times")
         return False
 
-    def save_htmls(self, email, input_file, folder):
+    def saveHtmls(self, email, input_file, folder):
         path = './' + folder + '/'
         options = webdriver.ChromeOptions()
         options.headless = False
@@ -169,7 +169,7 @@ class webSelenium():
                 urls.append(row)
         for url in urls:
             print('*' * 10, url, '*' * 10)
-            html = self.reset_pas(driver, url, email)
+            html = self.resetPas(driver, url, email)
             if not html:
                 continue
             else:
