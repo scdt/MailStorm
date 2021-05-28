@@ -1,6 +1,6 @@
 class HtmlClassifier:
-    def fit(self):
+    def fit(input_dir_non_reg, input_dir_reg, output_dir):
         pass
 
-    def predict(self, input_dir):
+    def predict(input_dir, clf_dir):
         pass

@@ -7,7 +7,7 @@ import re
 import time
 
 
-class webSelenium():
+class WebSelenium():
 
     def loadWait(driver):
         time.sleep(1)
@@ -114,14 +114,14 @@ class webSelenium():
             return inputs3[0]
         return None
 
-    def resetPas(self, driver, url, email):
+    def resetPas(driver, url, email):
         try:
             driver.get(url)
         except TimeoutException:
             pass
         for count in range(3):
             elements = driver.find_elements_by_tag_name("input")
-            element = self.findEmailInput(elements)
+            element = WebSelenium.findEmailInput(elements)
             if element is None:
                 print("Email input field not found")
                 return False
@@ -136,15 +136,15 @@ class webSelenium():
                 element.send_keys(Keys.ENTER)
             except Exception:
                 print('Send_keys Enter exception')
-            self.loadWait(driver)
+            WebSelenium.loadWait(driver)
             html_new = driver.page_source
             if html_old != html_new:
                 return html_new
             else:
-                button = self.findButton(driver)
+                button = WebSelenium.findButton(driver)
                 try:
                     button.click()
-                    self.loadWait(driver)
+                    WebSelenium.loadWait(driver)
                     html_new = driver.page_source
                     if html_old != html_new:
                         return html_new
@@ -156,7 +156,7 @@ class webSelenium():
         print("Element not interactable 3 times")
         return False
 
-    def saveHtmls(self, email, input_file, folder):
+    def saveHtmls(email, input_file, folder):
         path = './' + folder + '/'
         options = webdriver.ChromeOptions()
         options.headless = False
@@ -169,7 +169,7 @@ class webSelenium():
                 urls.append(row)
         for url in urls:
             print('*' * 10, url, '*' * 10)
-            html = self.resetPas(driver, url, email)
+            html = WebSelenium.resetPas(driver, url, email)
             if not html:
                 continue
             else:
