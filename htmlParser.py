@@ -25,6 +25,7 @@ class HtmlParser():
             if(word in stop_words):
                 text = re.sub(rf'\b{word}\b', '', text)
         text = re.sub(r'\s{2,}', ' ', text)
+        text = re.sub(r'\n', ' ', text)
         return text
 
     def htmlCmp(nr_dir1, nr_dir2, a_dir):

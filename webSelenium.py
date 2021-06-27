@@ -9,7 +9,7 @@ import time
 
 class WebSelenium():
 
-    def loadWait(driver):
+    def loadWaiting(driver):
         time.sleep(1)
         for _ in range(3):
             page_state = driver.execute_script("return document.readyState;")
@@ -21,7 +21,7 @@ class WebSelenium():
 
     '''
     Метод для поиска поля ввода email
-    Принимает лист из WebEelement, возрващает найденный WebElement или Non
+    Принимает лист из WebEelement, возрващает найденный WebElement или None
     '''
     def findEmailInput(elements):
         if len(elements) == 1:
